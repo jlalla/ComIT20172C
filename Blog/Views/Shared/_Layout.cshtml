@@ -58,12 +58,37 @@
             <p id="descripcion">Somos el blog más seguido del Club...</p>
 
             <p>Tenés alguna duda?</p>
-            <form method="post" action="@Url.Action("Contacto", "Home")">
-                <span>Nombre: </span><input type="text" name="nombre" placeholder="Ingresá tu nombre..." required><br>
-                <span>Mail: </span><input type="email" name="email" required><br>
-                <span>Mensaje: </span><textarea name="consulta" required></textarea><br>
-                <input type="submit" name="enviar" value="Enviar Contacto...">
-            </form>
+            <form method="post" action="@Url.Action("Contacto", "Home")"  class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <span>Nombre: </span>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" name="nombre" placeholder="Ingresá tu nombre..." required><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <span>Mail: </span>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="email" name="email" required><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <span>Mensaje: </span>
+                    </div>
+                    <div class="col-md-8">
+                        <textarea name="consulta" required></textarea><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <input type="submit" name="enviar" value="Enviar Contacto...">
+                    </div>
+                </div>
+</form>
 
             <br>
             <br>
