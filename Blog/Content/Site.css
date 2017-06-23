@@ -1,0 +1,87 @@
+﻿/*
+#articulo1, #articulo2, #articulo3{
+	color: blue;
+}*/
+
+/*
+.tituloArticulo{
+	color: blue;
+	font-size: 40px;
+}*/
+body{
+	padding-top: 50px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.articulo{
+	/*margin-bottom: 10px;*/
+	/*border: 1px solid;
+	padding: 20px;*/
+	/*float: left;*/
+}
+
+#destacados{
+	background-color: rgba(206, 225, 255, 0.5);
+}
+
+.articulo.destacado{
+	text-align: center;
+}
+
+/* cualquier h3 dentro de un elemento con clase artículo*/
+.articulo h3{
+	color: blue;
+}
+
+/*descendencia directa: p hijo de elemento con clase articulo*/
+.articulo > p{
+	font-family: Tahoma, sans-serif;
+}
+
+.escudo:hover{
+	/*height: 1000px;*/
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+#articulos{
+	/*float: right;*/
+}
+
+/*#articulos div.articulo:first-child{
+	background-color: gray;
+}*/
+
+.aside{
+	background-color: rgba(206, 225, 255, 0.8);
+}
+
+
+
+/*
+#articulos div:nth-child(1){
+	background-color: gray;
+}
+*/
+
+.carousel-inner .item
+{
+	max-height: 450px;
+}
+
+.carousel-inner .item img
+{
+	margin: 0 auto;
+}
+
+.cabeceraNoticia
+{
+	background-color: rgba(0,0,0,0.5);
+	width: 60%;
+	margin: 0 auto;
+}
+
+#contacto
+{
+	background-color: #ddd;
+}

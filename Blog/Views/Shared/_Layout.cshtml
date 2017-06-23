@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Blog</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">Blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="@Url.Action("Index", "Home")">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a class="linkCopado" href="#" data-pos="#contacto">Contacto</a></li>
+                    <li><a href="@Url.Action("AcercaDe", "Home")">Acerca de</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="iniciar"><a href="#" data-toggle="modal" data-target="#modalInicioSesion">Iniciar sesión</a></li>
+                    <li class="agregarArticulo hide"><a href="#" data-toggle="modal" data-target="#modalNuevoArticulo">Nuevo articulo</a></li>
+                    <li class="dropdown menuUsuario hide">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="nombreUsuario">Roberto</span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Mi perfil</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a id="salir" href="#">Salir</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    
+    @RenderBody()
+
+    @if (!ViewBag.Title.Equals("Contacto"))
+    {
+        <section id="contacto">
+
+            <h2>Contacto</h2>
+            <p id="descripcion">Somos el blog más seguido del Club...</p>
+
+            <p>Tenés alguna duda?</p>
+            <form method="post" action="@Url.Action("Contacto", "Home")">
+                <span>Nombre: </span><input type="text" name="nombre" placeholder="Ingresá tu nombre..." required><br>
+                <span>Mail: </span><input type="email" name="email" required><br>
+                <span>Mensaje: </span><textarea name="consulta" required></textarea><br>
+                <input type="submit" name="enviar" value="Enviar Contacto...">
+            </form>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+        </section>
+    }
+
+    <!-- Modal de Inicio de Sesión -->
+    <div class="modal fade" id="modalInicioSesion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Ingresá!</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-signin">
+                        <label for="loginEmail" class="sr-only">Email</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="Email" required="" autofocus="">
+                        <label for="loginContraseña" class="sr-only">Contraseña</label>
+                        <input type="password" id="loginContraseña" class="form-control" placeholder="Contraseña" required="">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button id="ingresar" type="button" class="btn btn-primary" data-dismiss="modal">Ingresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de nuevo articulo -->
+    <div class="modal fade" id="modalNuevoArticulo" tabindex="-1" role="dialog" aria-labelledby="myModalNuevoArticulo">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form class="">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalNuevoArticulo">Nuevo artículo...</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <label for="tituloArticulo">Titulo</label>
+                        <input type="text" id="tituloArticulo" class="form-control" placeholder="el título del artículo..." required autofocus>
+                        <label for="textoArticulo">Texto</label>
+                        <textarea id="textoArticulo" class="form-control" placeholder="Texto..." required></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <input id="agregarArticulo" type="submit" class="btn btn-primary" data-dismiss="modal" value="Agregar!" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+        
+    <script src="~/Scripts/general.js"></script>
+    @RenderSection("scripts", required: false)    
+</body>
+</html>
