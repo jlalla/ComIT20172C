@@ -107,11 +107,11 @@ $(document).on('ready', function () {
             );
 
         } else {
-            $("#articulos").append('<div class="articulo col-xs-6 col-md-4">' +
+            /*$("#articulos").append('<div class="articulo col-xs-6 col-md-4">' +
                     '<button href="#" class="close hide" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
                     '<h3>' + articulo.titulo + '</h3>' +
                     '<p>' + articulo.texto + '</p>' +
-                    '</div>');
+                    '</div>');*/
         }
 
         i++;
