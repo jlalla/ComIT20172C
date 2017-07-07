@@ -14,6 +14,7 @@ namespace Blog.Models
         public string Titulo { get; set; }
         public string Texto { get; set; }
         public string Imagen { get; set; }
+        public bool Destacado { get; set; }
         public Usuario Autor { get; set; }
         public List<Comentario> Comentarios { get; set; }
     }

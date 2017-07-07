@@ -78,7 +78,9 @@ $(document).on('ready', function () {
                     '</div>');
     }*/
 
+    //EL AGREGADO DE ARTÍCULOS AHORA LO HACEMOS EN SERVER
     //esto mismo podría estar en un while
+    /*
     var i = 0;
     while (i < articulos.length) {
         var articulo = articulos[i];
@@ -107,15 +109,16 @@ $(document).on('ready', function () {
             );
 
         } else {
-            /*$("#articulos").append('<div class="articulo col-xs-6 col-md-4">' +
+            $("#articulos").append('<div class="articulo col-xs-6 col-md-4">' +
                     '<button href="#" class="close hide" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
                     '<h3>' + articulo.titulo + '</h3>' +
                     '<p>' + articulo.texto + '</p>' +
-                    '</div>');*/
+                    '</div>');
         }
 
         i++;
     }
+    */
 
     //animación de links
     $(".linkCopado").on("click", function () {

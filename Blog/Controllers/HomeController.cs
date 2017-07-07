@@ -15,21 +15,29 @@ namespace Blog.Controllers
             Articulo articulo1 = new Articulo();
             articulo1.Titulo = "Se fue Pavone";
             articulo1.Texto = "El jugador no renovó su contrato. Se va a Estudiantes";
+            articulo1.Destacado = true;
+            articulo1.Imagen = "/Content/images/pavone.png";
             articulos.Add(articulo1);
 
             Articulo articulo2 = new Articulo();
             articulo2.Titulo = "Empatamos";
             articulo2.Texto = "Empatamos con el cervecero...";
+            articulo2.Destacado = true;
+            articulo2.Imagen = "/Content/images/quilmes.jpg";
             articulos.Add(articulo2);
 
             Articulo articulo3 = new Articulo();
             articulo3.Titulo = "Ganamos el \"clásico\"";
             articulo3.Texto = "Vélez le ganó a Tigre de local...";
+            articulo3.Destacado = true;
+            articulo3.Imagen = "/Content/images/tigre.jpg";
             articulos.Add(articulo3);
 
             Articulo articulo4 = new Articulo();
             articulo4.Titulo = "Otra derrota en casa";
             articulo4.Texto = "Vélez perdió con Belgrano de local...";
+            articulo4.Destacado = true;
+            articulo4.Imagen = "/Content/images/belgrano.jpg";
             articulos.Add(articulo4);
 
             Articulo articulo5 = new Articulo();
