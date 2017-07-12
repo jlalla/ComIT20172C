@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Blog.Models;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -45,6 +48,95 @@ namespace Blog.Controllers
                 resultado += operando1;
             }            
             return resultado.ToString();
+        }
+
+        public string PruebaEF()
+        {
+            using (BlogContext db = new Models.BlogContext())
+            {
+                Usuario nuevoUsuario = new Usuario();
+                nuevoUsuario.Mail = "larala@gmail.com";
+                nuevoUsuario.Nombre = "Lara La";
+                nuevoUsuario.Password = "123456";
+                nuevoUsuario.Bio = "un poco sobre mi...";
+
+                db.Usuarios.Add(nuevoUsuario);
+                db.SaveChanges();
+            }
+            return "listo";
+        }
+
+        public string PruebaAdoNet()
+        {
+            Usuario nuevoUsuario = new Usuario();
+            nuevoUsuario.Mail = "laralalla@gmail.com";
+            nuevoUsuario.Nombre = "Lara Lalla";
+            nuevoUsuario.Password = "123456";
+            nuevoUsuario.Bio = "un poco sobre mi...";
+
+            using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BlogContext"].ConnectionString))
+            {
+                conexion.Open();
+                using (SqlCommand sentencia = conexion.CreateCommand())
+                {
+                    sentencia.CommandText = "INSERT INTO Usuarios (Mail, Nombre, Password, Bio) VALUES(@Mail, @Nombre, @Password, @Bio)";
+                    sentencia.Parameters.AddWithValue("@Mail", nuevoUsuario.Mail);
+                    sentencia.Parameters.AddWithValue("@Nombre", nuevoUsuario.Nombre);
+                    sentencia.Parameters.AddWithValue("@Password", nuevoUsuario.Password);
+                    sentencia.Parameters.AddWithValue("@Bio", nuevoUsuario.Bio);
+                    sentencia.ExecuteNonQuery();
+                }
+                //conexion.Close(); //no es necesario por el using
+            }
+
+            return "listo";
+        }
+
+        public string PruebaEFConsulta()
+        {
+            using (BlogContext db = new Models.BlogContext())
+            {
+                //Usuario usuario = db.Usuarios.First();
+                Usuario usuario = db.Usuarios.First(u => u.Mail == "julieta@gmail.com");
+            }
+            return "listo";
+        }
+
+        public string PruebaEFConsultaTodos()
+        {
+            using (BlogContext db = new Models.BlogContext())
+            {                
+                List<Usuario> usuarios = db.Usuarios.ToList();
+
+                return "listo";
+            }            
+        }
+
+        public string PruebaAdoNetConsulta()
+        {
+            using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BlogContext"].ConnectionString))
+            {
+                conexion.Open();
+                using (SqlCommand sentencia = conexion.CreateCommand())
+                {
+                    sentencia.CommandText = "select * from usuarios where mail = 'julieta@gmail.com'";
+
+                    using (SqlDataReader reader = sentencia.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            Usuario usuario = new Models.Usuario();
+                            usuario.Mail = reader["Mail"].ToString();
+                            usuario.Nombre = reader["Nombre"].ToString();
+                            usuario.Password = reader["Password"].ToString();
+                            usuario.Imagen = reader["Imagen"].ToString();
+                            usuario.Bio = reader["Bio"].ToString();
+                        }
+                    }                    
+                }
+            }
+
+            return "listo";
         }
     }
 }
