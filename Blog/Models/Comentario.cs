@@ -14,6 +14,7 @@ namespace Blog.Models
         public int ID { get; set; }        
         public string Mail { get; set; }
         public string Texto { get; set; }
+        public DateTime Fecha { get; set; }
         public Articulo Articulo { get; set; }
     }
 }

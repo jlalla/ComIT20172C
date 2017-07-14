@@ -20,6 +20,7 @@ namespace Blog.Models
         public string Texto { get; set; }
         public string Imagen { get; set; }
         public bool Destacado { get; set; }
+        public DateTime FechaCreacion { get; set; }
         public Usuario Autor { get; set; }
         public List<Comentario> Comentarios { get; set; }
     }
