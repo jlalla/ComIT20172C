@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Blog.Models
 {
@@ -9,6 +10,7 @@ namespace Blog.Models
         public string Password { get; set; }
         public string Nombre { get; set; }
         public string Imagen { get; set; }
+        public DateTime FechaNacimiento { get; set; }
         public string Bio { get; set; }
     }
 }
