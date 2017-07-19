@@ -48,13 +48,9 @@ $(document).on('ready', function () {
         $(this).parent().remove();
     });
 
+    /*
     $("#agregarArticulo").on('click', function () {
 
-        /*<div class="articulo col-xs-6 col-md-4">
-            <button href="#" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h3>Otra noticia positiva</h3>
-            <p>Vélez.</p>
-        </div>*/
         var titulo = $('#tituloArticulo').val();
         var texto = $('#textoArticulo').val();
 
@@ -64,7 +60,7 @@ $(document).on('ready', function () {
                     '<p>' + texto + '</p>' +
                     '</div>');
     });
-
+    */
 
     //cargar los artículos!!
     /*

@@ -129,6 +129,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArticulosController.cs" />
+    <Compile Include="Controllers\ArticulosEFController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -173,7 +175,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -187,10 +191,16 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\AcercaDe.cshtml" />
     <Content Include="Views\Home\Contacto.cshtml" />
+    <Content Include="Views\ArticulosEF\Create.cshtml" />
+    <Content Include="Views\ArticulosEF\Delete.cshtml" />
+    <Content Include="Views\ArticulosEF\Details.cshtml" />
+    <Content Include="Views\ArticulosEF\Edit.cshtml" />
+    <Content Include="Views\ArticulosEF\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
+    <Folder Include="Views\Articulos\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>

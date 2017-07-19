@@ -1,5 +1,6 @@
 ﻿using Blog.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Web.Mvc;
@@ -8,58 +9,63 @@ namespace Blog.Controllers
 {
     public class HomeController : Controller
     {
+        BlogContext db = new BlogContext();
+
         public ActionResult Index()
         {
             List<Articulo> articulos = new List<Articulo>();
 
-            Articulo articulo1 = new Articulo();
-            articulo1.Titulo = "Se fue Pavone";
-            articulo1.Texto = "El jugador no renovó su contrato. Se va a Estudiantes";
-            articulo1.Destacado = true;
-            articulo1.Imagen = "/Content/images/pavone.png";
-            articulos.Add(articulo1);
+            //Articulo articulo1 = new Articulo();
+            //articulo1.Titulo = "Se fue Pavone";
+            //articulo1.Texto = "El jugador no renovó su contrato. Se va a Estudiantes";
+            //articulo1.Destacado = true;
+            //articulo1.Imagen = "/Content/images/pavone.png";
+            //articulos.Add(articulo1);
 
-            Articulo articulo2 = new Articulo();
-            articulo2.Titulo = "Empatamos";
-            articulo2.Texto = "Empatamos con el cervecero...";
-            articulo2.Destacado = true;
-            articulo2.Imagen = "/Content/images/quilmes.jpg";
-            articulos.Add(articulo2);
+            //Articulo articulo2 = new Articulo();
+            //articulo2.Titulo = "Empatamos";
+            //articulo2.Texto = "Empatamos con el cervecero...";
+            //articulo2.Destacado = true;
+            //articulo2.Imagen = "/Content/images/quilmes.jpg";
+            //articulos.Add(articulo2);
 
-            Articulo articulo3 = new Articulo();
-            articulo3.Titulo = "Ganamos el \"clásico\"";
-            articulo3.Texto = "Vélez le ganó a Tigre de local...";
-            articulo3.Destacado = true;
-            articulo3.Imagen = "/Content/images/tigre.jpg";
-            articulos.Add(articulo3);
+            //Articulo articulo3 = new Articulo();
+            //articulo3.Titulo = "Ganamos el \"clásico\"";
+            //articulo3.Texto = "Vélez le ganó a Tigre de local...";
+            //articulo3.Destacado = true;
+            //articulo3.Imagen = "/Content/images/tigre.jpg";
+            //articulos.Add(articulo3);
 
-            Articulo articulo4 = new Articulo();
-            articulo4.Titulo = "Otra derrota en casa";
-            articulo4.Texto = "Vélez perdió con Belgrano de local...";
-            articulo4.Destacado = true;
-            articulo4.Imagen = "/Content/images/belgrano.jpg";
-            articulos.Add(articulo4);
+            //Articulo articulo4 = new Articulo();
+            //articulo4.Titulo = "Otra derrota en casa";
+            //articulo4.Texto = "Vélez perdió con Belgrano de local...";
+            //articulo4.Destacado = true;
+            //articulo4.Imagen = "/Content/images/belgrano.jpg";
+            //articulos.Add(articulo4);
 
-            Articulo articulo5 = new Articulo();
-            articulo5.Titulo = "Otra derrota de visitante";
-            articulo5.Texto = "Vélez perdió con Lanus.";
-            articulos.Add(articulo5);
+            //Articulo articulo5 = new Articulo();
+            //articulo5.Titulo = "Otra derrota de visitante";
+            //articulo5.Texto = "Vélez perdió con Lanus.";
+            //articulos.Add(articulo5);
 
-            Articulo articulo6 = new Articulo();
-            articulo6.Titulo = "Otra noticia positiva";
-            articulo6.Texto = "Vélez.";
-            articulos.Add(articulo6);
+            //Articulo articulo6 = new Articulo();
+            //articulo6.Titulo = "Otra noticia positiva";
+            //articulo6.Texto = "Vélez.";
+            //articulos.Add(articulo6);
 
-            Articulo articulo7 = new Articulo();
-            articulo7.Titulo = "Otra noticia positiva";
-            articulo7.Texto = "Vélez";
-            articulos.Add(articulo7);
+            //Articulo articulo7 = new Articulo();
+            //articulo7.Titulo = "Otra noticia positiva";
+            //articulo7.Texto = "Vélez";
+            //articulos.Add(articulo7);
 
-            Articulo articulo8 = new Articulo();
-            articulo8.Titulo = "Otra noticia positiva";
-            articulo8.Texto = "Vélez";
-            articulos.Add(articulo8);
-
+            //Articulo articulo8 = new Articulo();
+            //articulo8.Titulo = "Otra noticia positiva";
+            //articulo8.Texto = "Vélez";
+            //articulos.Add(articulo8);
+            
+            //articulos = db.Articulos.OrderByDescending(a => a.FechaCreacion).ToList();
+            articulos = db.Articulos.OrderByDescending(a => a.FechaCreacion).Take(10).ToList();
+            
             ViewBag.Articulos = articulos;
             return View();
         }
