@@ -133,6 +133,7 @@
     <Compile Include="Controllers\ArticulosEFController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,12 +197,14 @@
     <Content Include="Views\ArticulosEF\Details.cshtml" />
     <Content Include="Views\ArticulosEF\Edit.cshtml" />
     <Content Include="Views\ArticulosEF\Index.cshtml" />
+    <Content Include="Views\Shared\Mensajes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
     <Folder Include="Views\Articulos\" />
     <Folder Include="Views\Test\" />
+    <Folder Include="Views\Usuarios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

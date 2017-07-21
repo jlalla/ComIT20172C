@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Blog.Models;
+@{
+    Usuario usuario = (Usuario) Session["UsuarioLogueado"];
+}
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -33,21 +37,28 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li id="iniciar"><a href="#" data-toggle="modal" data-target="#modalInicioSesion">Iniciar sesión</a></li>
-                    <li class="agregarArticulo hide"><a href="#" data-toggle="modal" data-target="#modalNuevoArticulo">Nuevo articulo</a></li>
-                    <li class="dropdown menuUsuario hide">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="nombreUsuario">Roberto</span><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Mi perfil</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a id="salir" href="#">Salir</a></li>
-                        </ul>
-                    </li>
+                    @if (usuario == null)
+                    {
+                        <li id="iniciar"><a href="#" data-toggle="modal" data-target="#modalInicioSesion">Iniciar sesión</a></li>
+                    }
+                    else
+                    {
+                        <li class="agregarArticulo"><a href="#" data-toggle="modal" data-target="#modalNuevoArticulo">Nuevo articulo</a></li>
+                        <li class="dropdown menuUsuario">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="nombreUsuario">@(usuario.Nombre)</span><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Mi perfil</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a id="salir" href="@Url.Action("Logout","Usuarios")">Salir</a></li>
+                            </ul>
+                        </li>
+                    }
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     
+    @Html.Partial("~/Views/Shared/Mensajes.cshtml")
     @RenderBody()
 
     @if (!ViewBag.Title.Equals("Contacto"))
@@ -154,22 +165,23 @@
     <div class="modal fade" id="modalInicioSesion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Ingresá!</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-signin">
+                <form class="form-signin" method="post" action="@Url.Action("Login","Usuarios")">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Ingresá!</h4>
+                    </div>
+                    <div class="modal-body">
                         <label for="loginEmail" class="sr-only">Email</label>
-                        <input type="email" id="loginEmail" class="form-control" placeholder="Email" required="" autofocus="">
+                        <input type="email" name="email" id="loginEmail" class="form-control" placeholder="Email" required="" autofocus="">
                         <label for="loginContraseña" class="sr-only">Contraseña</label>
-                        <input type="password" id="loginContraseña" class="form-control" placeholder="Contraseña" required="">
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button id="ingresar" type="button" class="btn btn-primary" data-dismiss="modal">Ingresar</button>
-                </div>
+                        <input type="password" name="password" id="loginContraseña" class="form-control" placeholder="Contraseña" required="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <input id="ingresar" type="submit" class="btn btn-primary" value="Ingresar" />
+                    </div>
+                </form>
             </div>
         </div>
     </div>

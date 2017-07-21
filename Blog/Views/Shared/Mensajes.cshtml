@@ -1,0 +1,16 @@
+﻿@if (TempData["Mensaje"] != null)
+{
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-info">Hey!! @TempData["Mensaje"]</div>
+        </div>
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-danger">Hey!! @TempData["Error"]</div>
+        </div>
+    </div>
+}

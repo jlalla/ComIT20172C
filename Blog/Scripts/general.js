@@ -21,6 +21,7 @@ $('#ingresar').on('click', darBienvenida);*/
 
 $(document).on('ready', function () {
 
+    /*
     $('#ingresar').on('click', function () {
 
         //$('#iniciar').hide();
@@ -42,6 +43,7 @@ $(document).on('ready', function () {
         $("#iniciar").removeClass("hide");
         $(".articulo .close").addClass("hide");
     });
+    */
 
     $("body").on('click', ".articulo .close", function () {
         //acá el this es el botón al que le hice click.
