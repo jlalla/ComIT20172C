@@ -198,13 +198,13 @@
     <Content Include="Views\ArticulosEF\Edit.cshtml" />
     <Content Include="Views\ArticulosEF\Index.cshtml" />
     <Content Include="Views\Shared\Mensajes.cshtml" />
+    <Content Include="Views\Usuarios\MiPerfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
     <Folder Include="Views\Articulos\" />
     <Folder Include="Views\Test\" />
-    <Folder Include="Views\Usuarios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -38,5 +38,16 @@ namespace Blog.Controllers
             //Session["UsuarioLogueado"] = null;
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult MiPerfil()
+        {
+            if (Session["UsuarioLogueado"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            Usuario usuario = (Usuario)Session["UsuarioLogueado"];
+            return View(usuario);
+        }
     }
 }

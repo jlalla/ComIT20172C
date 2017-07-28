@@ -138,5 +138,16 @@ namespace Blog.Controllers
 
             return "listo";
         }
+
+        
+        public JsonResult TestJson()
+        {
+            
+
+            Usuario usuario = new Models.Usuario();
+            usuario.Mail = "test@mail.com";
+
+            return Json(usuario, JsonRequestBehavior.AllowGet);
+        }
     }
 }

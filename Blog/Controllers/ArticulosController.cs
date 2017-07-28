@@ -14,6 +14,11 @@ namespace Blog.Controllers
         [HttpPost]
         public ActionResult Crear(string titulo, string texto)
         {
+            if (Session["UsuarioLogueado"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             Usuario usuario = (Usuario)Session["UsuarioLogueado"];
 
             Articulo nuevoArticulo = new Articulo();
